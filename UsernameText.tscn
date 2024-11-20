@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Font/alte-haas-grotesk/AlteHaasGroteskBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UsernameText.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=22]
+size = 42
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="UsernameText" type="Node2D" groups=["Net"]]
+script = ExtResource( 2 )
+
+[node name="VoterLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_right = 686.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 0, 51 )
+custom_colors/font_color = Color( 0.231373, 0.101961, 0.0823529, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "null"
+align = 1

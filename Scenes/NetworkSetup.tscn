@@ -1,0 +1,168 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Font/alte-haas-grotesk/AlteHaasGroteskBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/NetworkSetup.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/UI.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=9]
+size = 56
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.976471, 0.917647, 0.92549, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.482353, 0.156863, 0.101961, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.87451, 0.258824, 0.32549, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.568627, 0.192157, 0.129412, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[node name="NetworkSetup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 16.0
+margin_top = 300.0
+margin_right = 702.0
+margin_bottom = 1008.6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+
+[node name="PlayerConfigure" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="FullnameLabel" type="Label" parent="PlayerConfigure"]
+margin_left = 16.0
+margin_top = 450.0
+margin_right = 702.0
+margin_bottom = 518.0
+custom_colors/font_color = Color( 0.231373, 0.101961, 0.0823529, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "ENTER FULLNAME"
+align = 1
+
+[node name="UsernameTextEdit" type="LineEdit" parent="PlayerConfigure"]
+margin_left = 16.0
+margin_top = 540.0
+margin_right = 702.0
+margin_bottom = 630.0
+custom_colors/cursor_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.0941176, 0.101961, 0.184314, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+align = 1
+caret_blink = true
+
+[node name="CreateServer" type="Button" parent="PlayerConfigure"]
+margin_left = 16.0
+margin_top = 700.0
+margin_right = 702.0
+margin_bottom = 820.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "CREATE SERVER"
+
+[node name="JoinServer" type="Button" parent="PlayerConfigure"]
+margin_left = 16.0
+margin_top = 850.0
+margin_right = 702.0
+margin_bottom = 970.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "JOIN SERVER"
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 3 )
+
+[node name="DeviceIpAddresss" type="Label" parent="UI"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -68.0
+custom_colors/font_color = Color( 0.976471, 0.917647, 0.92549, 1 )
+custom_fonts/font = SubResource( 9 )
+align = 1
+valign = 1
+
+[node name="StartGame" type="Button" parent="UI"]
+margin_left = 16.0
+margin_top = 1030.0
+margin_right = 702.0
+margin_bottom = 1150.0
+custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "START VOTING"
+
+[node name="SpawnLocation" type="Node" parent="."]
+
+[node name="1" type="Position2D" parent="SpawnLocation"]
+position = Vector2( 16, 270 )
+
+[node name="2" type="Position2D" parent="SpawnLocation"]
+position = Vector2( 16, 370 )
+
+[node name="3" type="Position2D" parent="SpawnLocation"]
+position = Vector2( 16, 470 )
+
+[node name="4" type="Position2D" parent="SpawnLocation"]
+position = Vector2( 16, 570 )
+
+[node name="5" type="Position2D" parent="SpawnLocation"]
+position = Vector2( 16, 670 )
+
+[node name="6" type="Position2D" parent="SpawnLocation"]
+position = Vector2( 16, 770 )
+
+[connection signal="pressed" from="PlayerConfigure/CreateServer" to="." method="_on_CreateServer_pressed"]
+[connection signal="pressed" from="PlayerConfigure/JoinServer" to="." method="_on_JoinServer_pressed"]
+[connection signal="pressed" from="UI/StartGame" to="." method="_on_StartGame_pressed"]

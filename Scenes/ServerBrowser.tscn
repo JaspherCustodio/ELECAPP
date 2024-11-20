@@ -1,0 +1,210 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Font/alte-haas-grotesk/AlteHaasGroteskBold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/ServerBrowser.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/ServerListener.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.482353, 0.156863, 0.101961, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.87451, 0.258824, 0.32549, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.568627, 0.192157, 0.129412, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="DynamicFont" id=6]
+size = 36
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.976471, 0.917647, 0.92549, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFontData" id=14]
+font_path = "res://Font/alte-haas-grotesk/AlteHaasGroteskBold.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 56
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 14 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 42
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SearchingServers:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "SEARCHING FOR SERVERS." ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SearchingServers:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Searching"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SearchingServers:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "SEARCHING FOR SERVERS", "SEARCHING FOR SERVERS.", "SEARCHING FOR SERVERS..", "SEARCHING FOR SERVERS..." ]
+}
+
+[node name="ServerBrowser" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1755, -209 )
+script = ExtResource( 2 )
+
+[node name="ManualSetup" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 850.0
+margin_right = 702.0
+margin_bottom = 970.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "MANUAL SETUP"
+
+[node name="GoBack" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 1000.0
+margin_right = 702.0
+margin_bottom = 1120.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "GO BACK"
+
+[node name="ServerTextEdit" type="LineEdit" parent="."]
+margin_left = 16.0
+margin_top = 540.0
+margin_right = 702.0
+margin_bottom = 630.0
+custom_colors/font_color = Color( 0.521569, 0.458824, 0.466667, 1 )
+custom_fonts/font = SubResource( 6 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+align = 1
+
+[node name="JoinServer" type="Button" parent="ServerTextEdit"]
+margin_top = 160.0
+margin_right = 686.0
+margin_bottom = 280.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "JOIN SERVER"
+
+[node name="TypeServerIp" type="Label" parent="ServerTextEdit"]
+anchor_right = 1.0
+margin_top = -90.0
+margin_bottom = -22.0
+custom_colors/font_color = Color( 0.231373, 0.101961, 0.0823529, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "TYPE IN SERVER IP"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 395.0
+margin_right = -18.0
+margin_bottom = -782.0
+
+[node name="SearchingServers" type="Label" parent="VBoxContainer"]
+margin_right = 686.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0.231373, 0.101961, 0.0823529, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "SEARCHING FOR SERVERS."
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/SearchingServers"]
+root_node = NodePath("../..")
+autoplay = "Searching"
+playback_speed = 0.5
+anims/RESET = SubResource( 12 )
+anims/Searching = SubResource( 13 )
+
+[node name="ServerBrowserLabel" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 150.0
+margin_right = 702.0
+margin_bottom = 218.0
+custom_colors/font_color = Color( 0.231373, 0.101961, 0.0823529, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "SERVER BROWSER"
+align = 1
+
+[node name="ServerListener" parent="." instance=ExtResource( 3 )]
+
+[connection signal="pressed" from="ManualSetup" to="." method="_on_ManualSetup_pressed"]
+[connection signal="pressed" from="GoBack" to="." method="_on_GoBack_pressed"]
+[connection signal="pressed" from="ServerTextEdit/JoinServer" to="." method="_on_JoinServer_pressed"]
+[connection signal="new_server" from="ServerListener" to="." method="_on_ServerListener_new_server"]
+[connection signal="remove_server" from="ServerListener" to="." method="_on_ServerListener_remove_server"]
